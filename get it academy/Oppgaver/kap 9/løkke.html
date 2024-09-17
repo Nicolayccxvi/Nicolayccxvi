@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>2-gangen</title>
+    </head>
+    <body>
+        <h1>x2</h1>
+        <div id="result"></div>
+
+        <script>
+            let resultDiv = document.getElementById("result");
+            const phi = 1.618;
+
+            let a = 1,
+                b = 1;
+
+            for (let i = 1; i <= 10; i++) {
+                let next = a * phi;
+                console.log("Steg " + i + ": " + next);
+
+                let p = document.createElement("p");
+                p.textContent = "Steg " + i + ": " + next.toFixed(3);
+
+                resultDiv.appendChild(p);
+
+                a = b;
+                b = next;
+            }
+        </script>
+    </body>
+</html>

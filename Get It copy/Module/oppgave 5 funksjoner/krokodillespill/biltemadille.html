@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Lille Biltemadille</title>
+        <style>
+            img {
+                height: 100px;
+                width: 100px;
+            }
+            #sammenligningsvalg {
+                margin-top: 10px;
+            }
+            #tallene {
+                margin-top: 20px;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #førsteTall,
+            #andreTall,
+            #skille {
+                margin: 0 10px;
+            }
+            button {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="poeng">Poeng: 0</div>
+        <img
+            src="https://productimages.biltema.com/v1/image/imagebyfilename/45-0928_xl_2.jpg"
+            alt="Biltemadille"
+        />
+
+        <div id="sammenligningsvalg">
+            <button onclick="sjekkSvar('<')">&lt;</button>
+            <button onclick="sjekkSvar('=')">=</button>
+            <button onclick="sjekkSvar('>')">&gt;</button>
+        </div>
+
+        <div id="tallene">
+            <span id="førsteTall"></span>
+            <span id="skille">:</span>
+            <span id="andreTall"></span>
+        </div>
+
+        <button onclick="startNyttSpill()">Tilbakestill</button>
+
+        <script>
+            let førsteTall = 0;
+            let andreTall = 0;
+            let poeng = 0;
+
+            function startNyttSpill() {
+                oppdaterTall();
+            }
+
+            function oppdaterTall() {
+                førsteTall = hentTilfeldigTall();
+                andreTall = hentTilfeldigTall();
+                document.getElementById("førsteTall").innerHTML = førsteTall;
+                document.getElementById("andreTall").innerHTML = andreTall;
+            }
+
+            function hentTilfeldigTall() {
+                return Math.round(Math.random() * 10);
+            }
+
+            function sjekkSvar(operator) {
+                let riktigSvar;
+
+                if (førsteTall < andreTall) {
+                    riktigSvar = "<";
+                } else if (førsteTall > andreTall) {
+                    riktigSvar = ">";
+                } else {
+                    riktigSvar = "=";
+                }
+
+                if (operator === riktigSvar) {
+                    poeng++;
+                    alert("riktig svar!");
+                } else {
+                    alert("feil svar.");
+                }
+
+                document.getElementById("poeng").innerHTML = "Poeng: " + poeng;
+                startNyttSpill();
+            }
+
+            oppdaterTall();
+        </script>
+    </body>
+</html>

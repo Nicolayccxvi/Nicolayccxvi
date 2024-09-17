@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Handleliste/Vogn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #itemMenu {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #itemMenu h3 {
+            margin: 0;
+            padding: 10px;
+            background-color: #ddd;
+            border: 1px solid #000;
+            text-align: center; 
+        }
+
+        #items {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 120px;
+            height: 120px;
+            border: 2px solid black;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        #cart {
+            width: 30%;
+            border-left: 2px solid black;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+        }
+
+        #cart h4 {
+            margin-top: 0;
+        }
+
+        #cartItems {
+            flex-grow: 1;
+            margin-bottom: 10px;
+            border: 1px solid #000;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        #total {
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="itemMenu">
+        <h3>Lite utvalg med søppel produkter</h3>
+        <div id="items">
+            <div class="item" onclick="addToCart('Produkt 1', 200)">Produkt 1</div>
+            <div class="item" onclick="addToCart('Produkt 2', 350)">Produkt 2</div>
+            <div class="item" onclick="addToCart('Produkt 3', 150)">Produkt 3</div>
+            <div class="item" onclick="addToCart('Produkt 4', 500)">Produkt 4</div>
+        </div>
+    </div>
+
+    <div id="cart">
+        <h4>Her dukker alle de dyre produktene opp når du trykker på dem!</h4>
+        <div id="cartItems"></div>
+        <div id="total">Totalt: <span id="totalPrice">0</span> KR</div>
+    </div>
+
+    <script>
+        let total = 0;
+
+        function addToCart(item, price) {
+            const cartItems = document.getElementById('cartItems');
+            const newItem = document.createElement('div');
+            newItem.textContent = `${item} - ${price} KR`;
+            cartItems.appendChild(newItem);
+
+            total += price;
+            document.getElementById('totalPrice').textContent = total;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.keyboard-frame {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+}
+
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-input {
+    width: 80%;
+    height: 40px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid #0f0;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #000;
+    color: #0f0;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+    justify-items: center;
+}
+
+.keyboard button {
+    padding: 15px;
+    font-size: 1em;
+    border: none;
+    background-color: #444;
+    color: #0f0;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: inset 0 0 5px #000, 0 0 10px #000;
+}
+
+.keyboard button:hover {
+    background-color: #555;
+}
+
+.keyboard button:active {
+    background-color: #333;
+}
+
+.key-long {
+    grid-column: span 2;
+}
+
+.key-medium {
+    grid-column: span 1.5;
+}
+
+.key-shift,
+.key-space,
+.key-ctrl,
+.key-alt,
+.key-altgr,
+.key-fn {
+    grid-column: span 2;
+}
+
+button.active {
+    background-color: #555;
+}
+
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Press Start 2P Regular'), local('PressStart2P-Regular'), url(https://fonts.gstatic.com/s/pressstart2p/v8/e3t4euGp1jwHOqFIFJuBgaWJ9lU0g.ttf) format('truetype');
+}

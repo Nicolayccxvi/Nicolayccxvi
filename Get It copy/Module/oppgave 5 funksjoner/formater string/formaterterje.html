@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formater String</title>
+    </head>
+    <body>
+        <h1>Formater String</h1>
+        <label for="inputstring">Dytt inn en string her!</label>
+        <input type="text" id="inputstring" />
+        <button onclick="formaterstring()">Formater</button>
+
+        <h2>Resultat:</h2>
+        <p id="output"></p>
+
+        <script>
+            function formaterstring() {
+                let input = document.getElementById("inputstring").value.trim();
+
+                if (input.length > 0 && isNaN(input.charAt(0))) {
+                    let førstebokstav = input.charAt(0).toUpperCase();
+                    let restenavstring = input.substring(1);
+                    let fixedstring = førstebokstav + restenavstring;
+
+                    document.getElementById("output").innerText = fixedstring;
+                } else {
+                    document.getElementById("output").innerText = input;
+                }
+            }
+        </script>
+    </body>
+</html>

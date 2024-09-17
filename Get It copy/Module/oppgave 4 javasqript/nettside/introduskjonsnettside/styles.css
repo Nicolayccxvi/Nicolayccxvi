@@ -1,0 +1,125 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+header {
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+#burning-text {
+    font-size: 6em;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    padding: 3px;
+    background-color: #1c1c1c;
+    border-radius: 40px;
+}
+
+#burning-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 69, 0, 0.8) 0%,
+        rgba(255, 140, 0, 0.8) 60%,
+        transparent 100%
+    );
+    background-size: 100% 200%;
+    animation: burning-background 1.5s linear infinite;
+    z-index: 1;
+    border-radius: 40px;
+}
+
+@keyframes burning-background {
+    0% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#burning-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle,
+        rgba(255, 69, 0, 0.7) 30%,
+        transparent 70%
+    );
+    z-index: 0;
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+    border-radius: 8px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #ff5722;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #e0e0e0;
+}
+
+#profile-img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #ff5722;
+}
+
+#diverse-bilder {
+    text-align: center;
+}
+
+#diverse-bilder img {
+    max-width: 300px;
+    height: auto;
+    margin: 10px;
+    display: inline-block;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e64a19;
+}

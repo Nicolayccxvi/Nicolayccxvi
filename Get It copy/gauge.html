@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Improved SVG Gauge</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            .gauge {
+                width: 300px;
+                height: 150px;
+            }
+
+            .display {
+                margin-top: 10px;
+                font-size: 28px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .gauge-labels {
+                display: flex;
+                justify-content: space-between;
+                margin-top: -30px;
+                padding: 0 10px;
+            }
+
+            .gauge-label {
+                font-size: 14px;
+                color: #333;
+            }
+
+            .buttons {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <svg class="gauge" viewBox="0 0 100 50">
+                <path
+                    d="M 10 40 A 40 40 0 0 1 90 40"
+                    fill="none"
+                    stroke="#ddd"
+                    stroke-width="8"
+                />
+
+                <path
+                    id="arc"
+                    d="M 10 40 A 40 40 0 0 1 90 40"
+                    fill="none"
+                    stroke="url(#gradient)"
+                    stroke-width="8"
+                />
+
+                <clipPath id="gaugeClip">
+                    <path d="M 10 40 A 40 40 0 0 1 90 40 L 50 40 Z" />
+                </clipPath>
+                <image
+                    href="https://www.rolv.no/images/planteleksikon/E/eucalyptus_globosus1.jpg"
+                    x="25"
+                    y="10"
+                    width="50"
+                    height="30"
+                    clip-path="url(#gaugeClip)"
+                />
+
+                <line
+                    id="needle"
+                    x1="50"
+                    y1="40"
+                    x2="50"
+                    y2="12"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    transform-origin="50 40"
+                />
+
+                <defs>
+                    <linearGradient
+                        id="gradient"
+                        gradientUnits="userSpaceOnUse"
+                        x1="10"
+                        y1="40"
+                        x2="90"
+                        y2="40"
+                    >
+                        <stop offset="0%" stop-color="red" />
+                        <stop offset="50%" stop-color="yellow" />
+                        <stop offset="100%" stop-color="green" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <div class="gauge-labels">
+                <div class="gauge-label">0%</div>
+                <div class="gauge-label">25%</div>
+                <div class="gauge-label">50%</div>
+                <div class="gauge-label">75%</div>
+                <div class="gauge-label">100%</div>
+            </div>
+
+            <div id="display" class="display">0%</div>
+
+            <div class="buttons">
+                <button onclick="setNeedle(0)">0</button>
+                <button onclick="setNeedle(25)">25</button>
+                <button onclick="setNeedle(50)">50</button>
+                <button onclick="setNeedle(75)">75</button>
+                <button onclick="setNeedle(100)">100</button>
+            </div>
+        </div>
+
+        <script>
+            function setNeedle(percentage) {
+                const needle = document.getElementById("needle");
+                const display = document.getElementById("display");
+                const angle = (percentage / 100) * 180 - 90;
+                needle.setAttribute("transform", `rotate(${angle})`);
+                display.textContent = `${percentage}%`;
+            }
+
+            setNeedle(100);
+        </script>
+    </body>
+</html>

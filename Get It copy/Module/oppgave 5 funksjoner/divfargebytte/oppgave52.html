@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CCXVI</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div
+            class="color-picker"
+            id="teal"
+            onclick="selectColor('#008080')"
+        ></div>
+        <div
+            class="color-picker"
+            id="coral"
+            onclick="selectColor('#FF7F50')"
+        ></div>
+        <div
+            class="color-picker"
+            id="ivory"
+            onclick="selectColor('#FFFFF0')"
+        ></div>
+
+        <button onclick="changeBackgroundColor()">
+            Endre Nettleser Bakgrunn
+        </button>
+
+        <div class="color-target" onclick="selectDiv(this)"></div>
+        <div class="color-target" onclick="selectDiv(this)"></div>
+        <div class="color-target" onclick="selectDiv(this)"></div>
+
+        <script>
+            let selectedColor = "";
+            let selectedDiv = null;
+
+            function selectColor(color) {
+                selectedColor = color;
+            }
+
+            function changeBackgroundColor() {
+                if (selectedColor) {
+                    document.body.style.backgroundColor = selectedColor;
+                } else {
+                    alert("Velg en farge først!");
+                }
+            }
+
+            function selectDiv(div) {
+                if (selectedDiv) {
+                    selectedDiv.classList.remove("selected");
+                }
+                selectedDiv = div;
+                selectedDiv.classList.add("selected");
+
+                if (selectedColor) {
+                    selectedDiv.style.backgroundColor = selectedColor;
+                }
+            }
+        </script>
+    </body>
+</html>

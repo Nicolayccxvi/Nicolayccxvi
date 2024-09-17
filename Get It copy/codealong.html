@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="total">total:</p>
+
+        <button id="button2" onclick="leggtil(x)">2</button>
+        <button id="button3" onclick="leggtil(y)">3</button>
+        <button id="button9" onclick="leggtil(z)">9</button>
+
+        <script>
+            let x = 2;
+            let y = 3;
+            let z = 9;
+
+            let total = 0;
+            let antalltrykk = 0;
+
+            function leggtil(verdi) {
+                total += verdi;
+                antalltrykk++;
+
+                if (total === 55) {
+                    document.getElementById(
+                        "total"
+                    ).innerHTML = `winner, du nådde 55 etter ${antalltrykk} trykk.`;
+                    stoppknapp();
+                } else if (total > 55) {
+                    document.getElementById(
+                        "total"
+                    ).innerHTML = `gameover, du gikk over 55 med en total på ${antalltrykk} trykk. `;
+                    stoppknapp();
+                } else {
+                    document.getElementById(
+                        "total"
+                    ).innerHTML = `total : ${total}`;
+                }
+            }
+
+            function stoppknapp() {
+                document.getElementById("button2").disabled = true;
+                document.getElementById("button3").disabled = true;
+                document.getElementById("button9").disabled = true;
+            }
+        </script>
+    </body>
+</html>

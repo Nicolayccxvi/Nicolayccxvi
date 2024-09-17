@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terje</title>
+    <style>
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-template-rows: repeat(3, 1fr);
+            justify-content: start;
+            gap: 5px;
+        }
+
+        #buttons > button {
+            font-size: 300%;
+            background-color: lightblue;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        #container > div {
+            border: 1px solid green;
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuD0jFOi1zVS2l21dEJQyALuaxEXIKUma45w&s";
+
+        function showLogoUpperLeft() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div><img src="${imageUrl}" /></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="buttons">
+                    <button disabled>↖</button>
+                    <button disabled>▲</button>
+                    <button onclick="showLogoUpperRight()">↗</button>
+                    <button disabled>◀</button>
+                    <button disabled></button>
+                    <button onclick="showLogoUpperRight()">▶</button>
+                    <button onclick="showLogoLowerLeft()">↙</button>
+                    <button onclick="showLogoLowerLeft()">▼</button>
+                    <button onclick="showLogoLowerRight()">↘</button>
+                </div>            
+            `;
+        }
+
+        function showLogoUpperRight() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div><img src="${imageUrl}" /></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="buttons">
+                    <button onclick="showLogoUpperLeft()">↖</button>
+                    <button disabled>▲</button>
+                    <button disabled>↗</button>
+                    <button onclick="showLogoUpperLeft()">◀</button>
+                    <button disabled></button>
+                    <button disabled>▶</button>
+                    <button onclick="showLogoLowerLeft()">↙</button>
+                    <button onclick="showLogoLowerRight()">▼</button>
+                    <button disabled>↘</button>
+                </div>            
+            `;
+        }
+
+        function showLogoLowerLeft() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div></div>
+                    <div><img src="${imageUrl}" /></div>
+                    <div></div>
+                </div>
+                <div id="buttons">
+                    <button disabled>↖</button>
+                    <button onclick="showLogoUpperLeft()">▲</button>
+                    <button onclick="showLogoUpperRight()">↗</button>
+                    <button disabled>◀</button>
+                    <button disabled></button>
+                    <button onclick="showLogoLowerRight()">▶</button>
+                    <button disabled>↙</button>
+                    <button disabled>▼</button>
+                    <button disabled>↘</button>
+                </div>            
+            `;
+        }
+
+        function showLogoLowerRight() {
+            document.getElementById('app').innerHTML = /*HTML*/`            
+                <div id="container">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div><img src="${imageUrl}" /></div>
+                </div>
+                <div id="buttons">
+                    <button onclick="showLogoUpperLeft()">↖</button>
+                    <button onclick="showLogoUpperRight()">▲</button>
+                    <button disabled>↗</button>
+                    <button onclick="showLogoLowerLeft()">◀</button>
+                    <button disabled></button>
+                    <button disabled>▶</button>
+                    <button disabled>↙</button>
+                    <button disabled>▼</button>
+                    <button disabled>↘</button>
+                </div>            
+            `;
+        }
+
+        
+        showLogoLowerLeft();
+    </script>
+</body>
+</html>

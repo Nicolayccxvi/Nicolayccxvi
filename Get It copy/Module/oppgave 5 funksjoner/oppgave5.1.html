@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Endre Div</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+
+            #minDiv {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+            }
+
+            button {
+                margin-top: 20px;
+                padding: 10px;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="minDiv">TRYKK PÅ KNAPPENE</div>
+
+        <button onclick="changeDiv('CCXVI', '#FFD700', '20px')">1</button>
+        <button onclick="changeDiv('CCXVI', '#0028FF', '30px')">2</button>
+
+        <script>
+            function changeDiv(newText, newColor, newSize) {
+                var div = document.getElementById("minDiv");
+                div.innerText = newText;
+                div.style.backgroundColor = newColor;
+                div.style.fontSize = newSize;
+            }
+        </script>
+    </body>
+</html>

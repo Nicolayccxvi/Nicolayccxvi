@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="background-color: black;">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interaktiv Side</title>
+    <style>
+        details {
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        summary {
+            font-size: 1.2em;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            background-color: lightgray;
+        }
+
+        summary[style*="blue"] {
+            background-color: blue;
+        }
+        summary[style*="chartreuse"] {
+            background-color: chartreuse;
+            color: black;
+        }
+        summary[style*="red"] {
+            background-color: red;
+        }
+        summary[style*="yellow"] {
+            background-color: yellow;
+            color: black;
+        }
+        summary[style*="chocolate"] {
+            background-color: chocolate;
+        }
+
+        details div {
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .card {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+
+        .header {
+            font-size: 1.5em;
+            padding: 15px;
+            background-color: #333;
+            color:white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bodies {
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .bodyPart {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .bodyPart img {
+            max-height: 150px;
+        }
+
+        .dark {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <button>Ingen Layout</button>
+    <button>Vertikal Layout</button>
+    <button>Horisontal Layout</button>
+    <button>Grid Layout</button>
+
+    <h1 style="color: #f1f1f1;">Eksempel 1</h1>
+
+    <details>
+        <summary style="background-color: blue">VERKTØY</summary>
+        <div>
+            <p>De to viktigste verktøyene vi skal bruke er disse:</p>
+            <ul>
+                <li>
+                    Koderedigeringsprogrammet
+                    <a href="https://code.visualstudio.com/">
+                        Visual Studio Code
+                    </a>
+                </li>
+                <li>
+                    Nettleseren
+                    <a href="https://www.google.com">Google Chrome</a>
+                </li>
+            </ul>
+            <p>
+                Vi skal bruke noen
+                <i>extensions</i>
+                :
+            </p>
+            <ul>
+                <li>JavaScript-booster</li>
+                <li>es6-string-html</li>
+                <li>live-server</li>
+                <li>live-share</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary style="background-color: chartreuse">HTML</summary>
+        <div>
+            <p>Vi bruker HTML til å definere et dokument.</p>
+            <ul>
+                <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
+                <li>Tagger for grunnleggende formatering av tekst</li>
+            </ul>
+            <div>
+                <input type="text" placeholder="Skriv her" />
+                <button>
+                    <a href="https://www.w3schools.com/html/" target="_blank">
+                        W3Schools HTML Tutorial
+                    </a>
+                </button>
+                <button>
+                    <a href="https://www.w3schools.com/html/html_reference.asp" target="_blank">
+                        W3Schools HTML Reference
+                    </a>
+                </button>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary style="background-color: red">CSS</summary>
+        <div>
+            <p>
+                Vi bruker CSS til å style et dokument, altså farger, fonter,
+                utseende og lignende.
+            </p>
+            <ul>
+                <li>background-color</li>
+                <li>color</li>
+                <li>padding</li>
+                <li>margin</li>
+                <li>border</li>
+                <li>text-align</li>
+                <li>font-size</li>
+                <li>Flexbox</li>
+                <li>Grid</li>
+                <li>
+                    <a href="https://www.w3schools.com/css/" target="_blank">
+                        W3Schools CSS Tutorial
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com/cssref/" target="_blank">
+                        W3Schools CSS Reference
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary style="background-color: yellow">JavaScript</summary>
+        <div>
+            <p>
+                Det viktigste vi skal lære er programmeringsspråket
+                JavaScript. Vi skal lære grunnleggende programmering ved å
+                manipulere HTML- og CSS-kode på en nettside ved hjelp av
+                JavaScript.
+            </p>
+            <p>
+                Det finnes en
+                <a href="https://www.w3schools.com/js/" target="_blank">
+                    W3Schools JavaScript Tutorial
+                </a>
+                , men her anbefaler vi heller å følge kurset vårt på Moodle.
+            </p>
+            <p>
+                <a href="https://www.w3schools.com/jsref/" target="_blank">
+                    W3Schools JavaScript Reference
+                </a>
+            </p>
+        </div>
+    </details>
+
+    <details>
+        <summary style="background-color: chocolate">
+            Hode Kropp og Ben
+        </summary>
+        <div>
+            <div class="card">
+                <div class="header dark">
+                    Hode, kropp og ben
+                </div>
+                <div id="cardGame" class="bodies">
+                    <div id="head" class="bodyPart">
+                        <button onclick="selectHead(-1)">◀</button>
+                        <img
+                            id="headImage"
+                            src="https://getacademy.github.io/Eksempel1/img/head1.png"
+                            alt="Head"
+                        />
+                        <button onclick="selectHead(1)">▶</button>
+                    </div>
+                    <div id="body" class="bodyPart">
+                        <button onclick="selectBody(-1)">◀</button>
+                        <img
+                            id="bodyImage"
+                            src="https://getacademy.github.io/Eksempel1/img/body1.png"
+                            alt="Body"
+                        />
+                        <button onclick="selectBody(1)">▶</button>
+                    </div>
+                    <div id="legs" class="bodyPart">
+                        <button onclick="selectLegs(-1)">◀</button>
+                        <img
+                            id="legsImage"
+                            src="https://getacademy.github.io/Eksempel1/img/legs1.png"
+                            alt="Legs"
+                        />
+                        <button onclick="selectLegs(1)">▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </details>
+
+    <script>
+        function showBodyGame() {
+            var game = document.getElementById("cardGame");
+            game.style.display = "block";
+        }
+
+        const headImages = [
+            "https://getacademy.github.io/Eksempel1/img/head1.png",
+            "https://getacademy.github.io/Eksempel1/img/head2.png",
+            "https://getacademy.github.io/Eksempel1/img/head3.png",
+            "https://getacademy.github.io/Eksempel1/img/head4.png"
+        ];
+        const bodyImages = [
+            "https://getacademy.github.io/Eksempel1/img/body1.png",
+            "https://getacademy.github.io/Eksempel1/img/body2.png",
+            "https://getacademy.github.io/Eksempel1/img/body3.png",
+            "https://getacademy.github.io/Eksempel1/img/body4.png"
+        ];
+        const legsImages = [
+            "https://getacademy.github.io/Eksempel1/img/legs1.png",
+            "https://getacademy.github.io/Eksempel1/img/legs2.png",
+            "https://getacademy.github.io/Eksempel1/img/legs3.png",
+            "https://getacademy.github.io/Eksempel1/img/legs4.png"
+        ];
+
+        let currentHeadIndex = 0;
+        let currentBodyIndex = 0;
+        let currentLegsIndex = 0;
+
+        function updateImage(imageId, imageArray, index) {
+            document.getElementById(imageId).src = imageArray[index];
+        }
+
+        function selectHead(direction) {
+            currentHeadIndex =
+                (currentHeadIndex + direction + headImages.length) %
+                headImages.length;
+            updateImage("headImage", headImages, currentHeadIndex);
+        }
+
+        function selectBody(direction) {
+            currentBodyIndex =
+                (currentBodyIndex + direction + bodyImages.length) %
+                bodyImages.length;
+            updateImage("bodyImage", bodyImages, currentBodyIndex);
+        }
+
+        function selectLegs(direction) {
+            currentLegsIndex =
+                (currentLegsIndex + direction + legsImages.length) %
+                legsImages.length;
+            updateImage("legsImage", legsImages, currentLegsIndex);
+        }
+
+        showBodyGame();  // Make sure the game is visible on page load
+    </script>
+</body>
+</html>

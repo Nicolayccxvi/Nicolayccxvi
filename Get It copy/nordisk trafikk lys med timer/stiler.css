@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.trafikklys {
+    width: 100px;
+    height: 300px;
+    background-color: darkgrey;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lys {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(194, 194, 177);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.grønt {
+    background-color: green;
+}
+
+.gult {
+    background-color: yellow;
+}
+
+.rødt {
+    background-color: red;
+}

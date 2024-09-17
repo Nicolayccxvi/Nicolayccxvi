@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Telle vokaler</title>
+    </head>
+    <body>
+        <div id="result"></div>
+
+        <script>
+            function tellVokaler(text) {
+                let aCounter = 0,
+                    eCounter = 0,
+                    iCounter = 0,
+                    oCounter = 0,
+                    uCounter = 0;
+                let yCounter = 0,
+                    æCounter = 0,
+                    øCounter = 0,
+                    åCounter = 0;
+
+                text = text.toLowerCase();
+
+                for (let i = 0; i < text.length; i++) {
+                    
+                    let char = text[i];
+
+                    if (char === "a") aCounter++;
+                    else if (char === "e") eCounter++;
+                    else if (char === "i") iCounter++;
+                    else if (char === "o") oCounter++;
+                    else if (char === "u") uCounter++;
+                    else if (char === "y") yCounter++;
+                    else if (char === "æ") æCounter++;
+                    else if (char === "ø") øCounter++;
+                    else if (char === "å") åCounter++;
+                }
+
+                return {
+                    a: aCounter,
+                    e: eCounter,
+                    i: iCounter,
+                    o: oCounter,
+                    u: uCounter,
+                    y: yCounter,
+                    æ: æCounter,
+                    ø: øCounter,
+                    å: åCounter
+                };
+            }
+
+            let tekst = "Hei, programmering i JavaScript er best!";
+            let resultater = tellVokaler(tekst);
+
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+            <p>Antall a: ${resultater.a}</p>
+            <p>Antall e: ${resultater.e}</p>
+            <p>Antall i: ${resultater.i}</p>
+            <p>Antall o: ${resultater.o}</p>
+            <p>Antall u: ${resultater.u}</p>
+            <p>Antall y: ${resultater.y}</p>
+            <p>Antall æ: ${resultater.æ}</p>
+            <p>Antall ø: ${resultater.ø}</p>
+            <p>Antall å: ${resultater.å}</p>
+            `;
+        </script>
+    </body>
+</html>

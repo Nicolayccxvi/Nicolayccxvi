@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            #mindiv {
+                background-color: aqua;
+                color: black;
+                font-size: 14px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="mindiv">hei</div>
+        <button onclick="changecolor('purple','20px', 'den er lilla')" id="">
+            trykk her
+        </button>
+        <button onclick="changecolor('darkgreen','60px', 'den er grønn')" id="">
+            trykk her
+        </button>
+
+        <script>
+
+            function changecolor(farge, størrelse, tekst) {
+                let mindiv = document.getElementById("mindiv");
+                mindiv.style.backgroundColor = farge;
+                mindiv.innerHTML = tekst;
+                mindiv.style.fontSize = størrelse;
+            }
+        </script>
+    </body>
+</html>

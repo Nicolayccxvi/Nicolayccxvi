@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Input</title>
+</head>
+<body>
+    <h1>Reverser tekst</h1>
+    <input type="text" id="userInput" placeholder="Skriv her">
+    <button onclick="ReverserTekst()">Reverser</button>
+
+    <div id="result"></div>
+    <script>
+        function ReverserTekst() {
+            let text = document.getElementById("userInput").value;
+
+            let reversedText = '';
+
+            for (let i = text.length -1; i >= 0; i--) {
+                reversedText += text[i];
+            }
+
+            document.getElementById("result").innerHTML = `<p>Reversert tekst: ${reversedText}</p>`; 
+        }
+    </script>
+    
+</body>
+</html>

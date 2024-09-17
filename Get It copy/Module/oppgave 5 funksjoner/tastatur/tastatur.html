@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Retro Norsk Tastatur</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="keyboard-container">
+            <input type="text" id="textInput" class="text-input" readonly />
+
+            <div class="keyboard">
+                <!-- Øverste rad -->
+                <button onclick="addToTextField(this)">Esc</button>
+                <button class="f-key" onclick="addToTextField(this)">F1</button>
+                <button class="f-key" onclick="addToTextField(this)">F2</button>
+                <button class="f-key" onclick="addToTextField(this)">F3</button>
+                <button class="f-key" onclick="addToTextField(this)">F4</button>
+                <button class="f-key" onclick="addToTextField(this)">F5</button>
+                <button class="f-key" onclick="addToTextField(this)">F6</button>
+                <button class="f-key" onclick="addToTextField(this)">F7</button>
+                <button class="f-key" onclick="addToTextField(this)">F8</button>
+                <button class="f-key" onclick="addToTextField(this)">F9</button>
+                <button class="f-key" onclick="addToTextField(this)">
+                    F10
+                </button>
+                <button class="f-key" onclick="addToTextField(this)">
+                    F11
+                </button>
+                <button class="f-key" onclick="addToTextField(this)">
+                    F12
+                </button>
+                <button class="key-long" onclick="addToTextField(this)">
+                    PrtSc
+                </button>
+
+                <!-- Andre rad -->
+                <button onclick="addToTextField(this)">§</button>
+                <button onclick="addToTextField(this)">1</button>
+                <button onclick="addToTextField(this)">2</button>
+                <button onclick="addToTextField(this)">3</button>
+                <button onclick="addToTextField(this)">4</button>
+                <button onclick="addToTextField(this)">5</button>
+                <button onclick="addToTextField(this)">6</button>
+                <button onclick="addToTextField(this)">7</button>
+                <button onclick="addToTextField(this)">8</button>
+                <button onclick="addToTextField(this)">9</button>
+                <button onclick="addToTextField(this)">0</button>
+                <button onclick="addToTextField(this)">+</button>
+                <button onclick="addToTextField(this)">´</button>
+                <button class="key-long" onclick="backspace()">←</button>
+
+                <!-- Tredje rad -->
+                <button class="key-medium" onclick="addToTextField(this)">
+                    Tab
+                </button>
+                <button onclick="addToTextField(this)">Q</button>
+                <button onclick="addToTextField(this)">W</button>
+                <button onclick="addToTextField(this)">E</button>
+                <button onclick="addToTextField(this)">R</button>
+                <button onclick="addToTextField(this)">T</button>
+                <button onclick="addToTextField(this)">Y</button>
+                <button onclick="addToTextField(this)">U</button>
+                <button onclick="addToTextField(this)">I</button>
+                <button onclick="addToTextField(this)">O</button>
+                <button onclick="addToTextField(this)">P</button>
+                <button onclick="addToTextField(this)">Å</button>
+                <button onclick="addToTextField(this)">¨</button>
+                <button class="key-medium" onclick="addToTextField(this)">
+                    ^
+                </button>
+
+                <!-- Fjerde rad -->
+                <button class="key-capslock" onclick="toggleCapsLock()">
+                    Caps
+                </button>
+                <button onclick="addToTextField(this)">A</button>
+                <button onclick="addToTextField(this)">S</button>
+                <button onclick="addToTextField(this)">D</button>
+                <button onclick="addToTextField(this)">F</button>
+                <button onclick="addToTextField(this)">G</button>
+                <button onclick="addToTextField(this)">H</button>
+                <button onclick="addToTextField(this)">J</button>
+                <button onclick="addToTextField(this)">K</button>
+                <button onclick="addToTextField(this)">L</button>
+                <button onclick="addToTextField(this)">Ø</button>
+                <button onclick="addToTextField(this)">Æ</button>
+                <button class="key-long" onclick="addToTextField(this)">
+                    Enter
+                </button>
+
+                <!-- Femte rad -->
+                <button class="key-shift" onclick="toggleShift()">Shift</button>
+                <button onclick="addToTextField(this)">Z</button>
+                <button onclick="addToTextField(this)">X</button>
+                <button onclick="addToTextField(this)">C</button>
+                <button onclick="addToTextField(this)">V</button>
+                <button onclick="addToTextField(this)">B</button>
+                <button onclick="addToTextField(this)">N</button>
+                <button onclick="addToTextField(this)">M</button>
+                <button onclick="addToTextField(this)"><</button>
+                <button onclick="addToTextField(this)">,</button>
+                <button onclick="addToTextField(this)">.</button>
+                <button onclick="addToTextField(this)">-</button>
+                <button class="key-shift" onclick="toggleShift()">Shift</button>
+
+                <!-- Sjette rad -->
+                <button class="key-fn" onclick="addToTextField(this)">
+                    Fn
+                </button>
+                <button class="key-ctrl" onclick="addToTextField(this)">
+                    Ctrl
+                </button>
+                <button class="key-alt" onclick="addToTextField(this)">
+                    Alt
+                </button>
+                <button class="key-space" onclick="addToTextField(this)">
+                    Space
+                </button>
+                <button class="key-altgr" onclick="addToTextField(this)">
+                    AltGr
+                </button>
+                <button class="key-ctrl" onclick="addToTextField(this)">
+                    Ctrl
+                </button>
+            </div>
+        </div>
+
+        <script>
+            let isCapsLockOn = false;
+            let isShiftOn = false;
+
+            function addToTextField(button) {
+                let letter = button.innerText;
+
+                if (letter === "Space") {
+                    letter = " ";
+                }
+
+                if (isCapsLockOn || isShiftOn) {
+                    letter = letter.toUpperCase();
+                } else {
+                    letter = letter.toLowerCase();
+                }
+
+                document.getElementById("textInput").value += letter;
+
+                if (isShiftOn) {
+                    toggleShift();
+                }
+            }
+
+            function clearTextField() {
+                document.getElementById("textInput").value = "";
+            }
+
+            function backspace() {
+                let currentText = document.getElementById("textInput").value;
+                document.getElementById("textInput").value = currentText.slice(
+                    0,
+                    -1
+                );
+            }
+
+            function toggleCapsLock() {
+                isCapsLockOn = !isCapsLockOn;
+                document
+                    .querySelector(".key-capslock")
+                    .classList.toggle("active", isCapsLockOn);
+            }
+
+            function toggleShift() {
+                isShiftOn = !isShiftOn;
+                document.querySelectorAll(".key-shift").forEach((button) => {
+                    button.classList.toggle("active", isShiftOn);
+                });
+            }
+        </script>
+    </body>
+</html>

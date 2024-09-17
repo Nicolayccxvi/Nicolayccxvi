@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lysbryter</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .lyspære {
+                width: 100px;
+                height: 100px;
+                background-color: grey;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .tekst {
+                margin-top: 20px;
+                font-size: 18px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="lyspære" id="lyspære" onclick="skruPåEllerAv()"></div>
+        <div class="tekst" id="status">Lyspæren er av</div>
+
+        <script>
+            function skruPåEllerAv() {
+                var lyspære = document.getElementById("lyspære");
+                var statusTekst = document.getElementById("status");
+
+                if (lyspære.style.backgroundColor === "grey") {
+                    lyspære.style.backgroundColor = "yellow";
+                    statusTekst.innerHTML = "på";
+                } else {
+                    lyspære.style.backgroundColor = "grey";
+                    statusTekst.innerHTML = "av";
+                }
+            }
+        </script>
+    </body>
+</html>

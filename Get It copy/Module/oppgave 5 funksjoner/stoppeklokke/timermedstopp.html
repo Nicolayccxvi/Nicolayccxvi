@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stoppeklokke</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="app" class="clockDisplay">0 sek</div>
+
+            <button class="clockButton" onclick="startTimer()">Start</button>
+
+            <button class="clockButton" onclick="pauseTimer()">Runde</button>
+
+            <button class="clockButton" onclick="stopAll()">Stopp</button>
+            <br />
+
+            RUNDETIDER:
+            <div id="lastRound" class="roundsList"><ul></ul></div>
+        </div>
+
+        <script>
+            const app = document.getElementById("app");
+            const roundTime = document
+                .getElementById("lastRound")
+                .querySelector("ul");
+
+            let seconds = 0;
+            let timer = null;
+
+            function startTimer() {
+                if (!timer) {
+                    timer = setInterval(countSeconds, 1000);
+                }
+            }
+
+            function countSeconds() {
+                seconds++;
+                app.innerHTML = `${seconds} sek`;
+            }
+
+            function pauseTimer() {
+                if (timer) {
+                    roundTime.innerHTML += `<li>${seconds} sekunder</li>`;
+                    clearInterval(timer);
+                    timer = null;
+                    seconds = 0;
+                    app.innerHTML = "0 sek";
+                }
+            }
+
+            function stopAll() {
+                if (timer) {
+                    clearInterval(timer);
+                }
+                seconds = 0;
+                app.innerHTML = "0 sek";
+                roundTime.innerHTML = "";
+                timer = null;
+            }
+        </script>
+    </body>
+</html>
